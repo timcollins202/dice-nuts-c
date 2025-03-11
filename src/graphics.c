@@ -1,6 +1,5 @@
 #include "lib/neslib.h"
 #include "lib/nesdoug.h"
-//#include "dice-nuts.c"
 
 extern unsigned char *current_screen;
 

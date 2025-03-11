@@ -286,3 +286,4 @@ sounds_data:
 .segment "CHARS"
 
 	.incbin "chr/dice-nuts-bg.chr"
+	.incbin "chr/dice-nuts-sp.chr"
