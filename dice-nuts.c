@@ -2,6 +2,7 @@
 #include "lib/nesdoug.h"
 
 #include "src/graphics.h"
+#include "src/player_actions.h"
 #include "data/nametables.h"
 
 
@@ -29,13 +30,17 @@ unsigned char selector_xpos;
 unsigned char selector_ypos;
 
 
-void main(void) {
+void main(void) 
+{
     // Turn the screen off
     ppu_off();
 
     // Load palettes
     pal_bg(bg_palette);
     pal_spr(spr_palette);
+
+    //Set sprite bank.  BG on 1, SPR on 1
+    bank_spr(1);
 
     // Clear sprites
     oam_clear();
@@ -55,9 +60,19 @@ void main(void) {
     current_screen = playfield;
     display_screen();
 
+    // Initialize selector position
+    selector_xpos = 18;
+    selector_ypos = 31;
+
     // Game loop
     while (1) {
-        //game logic here
+        //wait for beginning of frame
         ppu_wait_frame(); 
+
+        //read controller 1
+        pad1 = pad_poll(0);
+        
+        player_actions();
+        draw_sprites();
     }
 }
