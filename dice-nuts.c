@@ -61,8 +61,8 @@ void main(void)
     display_screen();
 
     // Initialize selector position
-    selector_xpos = 18;
-    selector_ypos = 31;
+    selector_xpos = 31;
+    selector_ypos = 18;
 
     // Game loop
     while (1) {
@@ -70,7 +70,7 @@ void main(void)
         ppu_wait_frame(); 
 
         //read controller 1
-        pad1 = pad_poll(0);
+        pad1 = pad_trigger(0);
         
         player_actions();
         draw_sprites();
