@@ -5,9 +5,9 @@
 extern const unsigned char metasprite_selector[];
 
 //Display the screen pointed to by current_screen
-void display_screen(void);
+void display_screen();
 
 //Push sprite data to OAM
-void draw_sprites(void);
+void draw_sprites();
 
 #endif

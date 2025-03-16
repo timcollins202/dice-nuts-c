@@ -1,5 +1,6 @@
 #include "../lib/neslib.h"
 #include "../lib/nesdoug.h"
+#include "../data/metatiles.h"
 
 extern unsigned char *current_screen;
 
@@ -15,19 +16,8 @@ const unsigned char metasprite_selector[]={
     128
 };
 
-//Puts a string into VRAM
-void put_str(unsigned int adr, const char *str) {
-    vram_adr(adr);
-
-    while (1) {
-        if (!*str) break;
-
-        vram_put((*str++) - 0x20); // -0x20 because ASCII code 0x20 is placed in tile 0 of the CHR
-    }
-}
-
 //Draw the screen pointed to by current_screen
-void display_screen(void) 
+void display_screen() 
 {
     // Turn PPU off
     ppu_off();
@@ -46,7 +36,7 @@ void display_screen(void)
     pal_fade_to(0, 4);
 }
 
-void draw_sprites(void) 
+void draw_sprites() 
 {
     //clear sprite buffer
     oam_clear();
@@ -54,3 +44,5 @@ void draw_sprites(void)
     //Draw selector metasprite
     oam_meta_spr(selector_xpos, selector_ypos, metasprite_selector);
 }
+
+

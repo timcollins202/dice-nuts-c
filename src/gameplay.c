@@ -9,7 +9,7 @@ unsigned char dice_selected[MAX_DICE];  //1 if selected, 0 if not
 unsigned char random_number;            //random value 1-6 we'll use as a die roll
 unsigned char toggle_index;             //set before calling toggle_die_selection()
 
-void roll_die(void) 
+void roll_die() 
 {
     do{
         random_number = rand8() & 0x07;     //mask off the lowest 3 bits 0-7
@@ -18,7 +18,7 @@ void roll_die(void)
     random_number += 1;                     //shift range to 1-6
 }
 
-void roll_unselected_dice(void) 
+void roll_unselected_dice() 
 {
     unsigned char i;
     
@@ -30,7 +30,7 @@ void roll_unselected_dice(void)
     }
 }
 
-void toggle_die_selection(void) 
+void toggle_die_selection() 
 {
     if (toggle_index < MAX_DICE) {
         dice_selected[toggle_index] ^= 1;   //toggle between 0 and 1

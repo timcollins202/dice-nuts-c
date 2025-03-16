@@ -7,7 +7,9 @@ extern unsigned char *current_screen;
 extern unsigned char selector_xpos;
 extern unsigned char selector_ypos; 
 
-void player_actions(void) 
+unsigned char pointed_to_die;
+
+void player_actions() 
 {
     if (pad1 & PAD_LEFT && selector_xpos > 31) {
         selector_xpos -= 40;

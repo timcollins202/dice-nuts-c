@@ -30,7 +30,7 @@ unsigned char selector_xpos;
 unsigned char selector_ypos;
 
 
-void main(void) 
+void main() 
 {
     // Turn the screen off
     ppu_off();
