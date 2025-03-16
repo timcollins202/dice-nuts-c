@@ -11,16 +11,10 @@ unsigned char pointed_to_die;
 
 void player_actions() 
 {
-    if (pad1 & PAD_LEFT && selector_xpos > 31) {
+    if (pad1 & PAD_LEFT && selector_xpos > 32) {
         selector_xpos -= 40;
     }
-    else if (pad1 & PAD_RIGHT && selector_xpos < 111) {
-        selector_xpos += 40;
-    }
-    else if (pad1 & PAD_DOWN && selector_ypos < 50) {
-        selector_ypos += 32;
-    }
-    else if (pad1 & PAD_UP && selector_ypos > 18) {
-        selector_ypos -= 32;
+    else if (pad1 & PAD_RIGHT && selector_xpos < 192) {
+        selector_xpos += 32;
     }
 }

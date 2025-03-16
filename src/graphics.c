@@ -7,12 +7,15 @@ extern unsigned char *current_screen;
 extern unsigned char selector_xpos;
 extern unsigned char selector_ypos; 
 
+unsigned char selector_x_tile;
+unsigned char selector_y_tile;
+
 //x offset, y offset, tile, attribute. 128 terminates
 const unsigned char metasprite_selector[]={
-    0, 0, 0x02, 0,
-    8, 0, 0x02, 0|OAM_FLIP_H,
-    0, 33, 0x02, 0|OAM_FLIP_V,
-    8, 33, 0x02, 0|OAM_FLIP_H|OAM_FLIP_V,
+    0, 0, 0x01, 0,
+    24, 0, 0x01, 0|OAM_FLIP_H,
+    0, 24, 0x01, 0|OAM_FLIP_V,
+    24, 24, 0x01, 0|OAM_FLIP_H|OAM_FLIP_V,
     128
 };
 
@@ -45,4 +48,21 @@ void draw_sprites()
     oam_meta_spr(selector_xpos, selector_ypos, metasprite_selector);
 }
 
+void draw_die() 
+{
+    //Set VRAM_UPDATE to point to the buffer
+    set_vram_buffer();
 
+    //Set the selector tile variables based on the selector position
+
+
+}
+
+void set_selector_tiles()
+{
+    //Calculate starting tile address from selector position
+    selector_y_tile = selector_ypos == 18 ? 3 : 7;
+
+    selector_x_tile = selector_xpos == 31 ? 3 :
+                      selector_xpos == 72 ? 8 : 13;
+}

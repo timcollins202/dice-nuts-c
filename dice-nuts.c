@@ -39,7 +39,7 @@ void main()
     pal_bg(bg_palette);
     pal_spr(spr_palette);
 
-    //Set sprite bank.  BG on 1, SPR on 1
+    //Set sprite bank.  BG defaults to 0, SPR set to 1
     bank_spr(1);
 
     // Clear sprites
@@ -61,8 +61,8 @@ void main()
     display_screen();
 
     // Initialize selector position
-    selector_xpos = 31;
-    selector_ypos = 18;
+    selector_xpos = 32;
+    selector_ypos = 72;
 
     // Game loop
     while (1) {

@@ -2,6 +2,6 @@
 #define PLAYER_ACTIONS_H
 
 //Handle player actions
-void player_actions(void);
+void player_actions();
 
 #endif
